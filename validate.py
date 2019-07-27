@@ -1,11 +1,31 @@
 #!/usr/bin/env python3
 
-import re
-
+"""
+	This class implements data validation.
+"""
 class Validate:
 
-	def get_str_number(self, data_in):
-		return re.search(r'-?\d+', data_in).group()
-
 	def is_number(self, data_in):
-		return True
+		"""
+			Checks if data_in is a valid integer number, 
+			positive or negative.
+			Returns True if is valid.
+		"""
+
+		# removes first '/'
+		data_in = data_in[1:]
+
+		# check if is empty
+		if data_in == '':
+			return False
+
+		# check if is a negative number and remove '-'
+		if data_in[0] == '-':
+			data_in = data_in[1:]
+
+		# check if a integer
+		if data_in.isdigit():
+			if int(data_in) >= -99999 and int(data_in) <= 99999:
+				return True
+
+		return False
