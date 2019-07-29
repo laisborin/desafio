@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from server import Server
+from appserver.server import Server
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 """
@@ -9,7 +9,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 try:
     print('starting server on port 3000...')
-    server_address = ('', 3000)
+    server_address = ('localhost', 3000)
     server = HTTPServer(server_address, Server)
     print('SERVER ON!\nType Ctrl+C to shut down.')
     server.serve_forever()
